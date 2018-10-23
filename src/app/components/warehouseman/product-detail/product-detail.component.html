@@ -1,0 +1,14 @@
+<div>
+  <div *ngIf="userIsWarehouseman() && product">
+    <h2>{{product.name}} - Detalles</h2>
+    <div>Código SKU: {{product.SKUcode}}</div>
+    <div>Unidad de medida: {{product.meassureUnit}}</div>
+    <div>Cantidad: {{product.quantity}}</div>
+    <div>Precio: {{product.price}}</div>
+    <a routerLink="/warehouseman/product-edit/{{product.SKUcode}}">Editar</a>
+    <button (click)="deleteProduct(product)">Eliminar</button>
+    <button (click)="goBack()">volver</button>
+  </div>
+  <div *ngIf="userIsCashier()">Usuario no autorizado.</div>
+  <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
+</div>

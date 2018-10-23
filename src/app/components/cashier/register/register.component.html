@@ -1,0 +1,55 @@
+<div>
+  <div *ngIf="userIsCashier() && !invoice">
+    <h2>Registro de productos</h2>
+    <div *ngIf="keys.length > 0">
+      <button (click)="calculate()">Calcular</button>
+      <button (click)="generateInvoice()">Generar factura</button>
+    </div>
+    <div *ngIf="total > 0">Total: {{total}}</div>
+    <div>
+      <label>Código SKU:
+        <input #SKUcode />
+      </label>
+      <label>Cantidad:
+        <input type="number" #quantity />
+      </label>
+      <button (click)="addProduct(SKUcode.value, quantity.value); SKUcode.value=''; quantity.value=''">
+        add
+      </button>
+    </div>
+
+    <ul>
+      <li *ngFor="let key of keys">
+        <div>{{key.name}}</div>
+        <div>{{key.price}}</div>
+        <div>Cantidad: {{productsMap.get(key)}}</div>
+        <button (click)="removeProduct(key)">Borrar</button>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="userIsCashier() && invoice">
+    <h2>Factura</h2>
+    <table>
+      <tr>
+        <th>Producto</th>
+        <th>Precio unidad</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+      <tr *ngFor="let key of keys">
+        <td>-{{key.name}}</td>
+        <td>{{key.price}}</td>
+        <td>{{productsMap.get(key)}}</td>
+        <td>{{priceQuantity.get(key)}}</td>
+      </tr>
+    </table>
+    <hr>
+    <div>Total: {{total}}</div>
+    <button (click)="goBack()">volver</button>
+  </div>
+
+  <div *ngIf="userIsWarehouseman()">Usuario no autorizado.</div>
+  <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
+
+</div>

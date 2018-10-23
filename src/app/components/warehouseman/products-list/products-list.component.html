@@ -1,0 +1,17 @@
+<div class="row align-items-center test">
+  <div *ngIf="userIsWarehouseman()" class="col">
+    <h2>Inventario</h2>
+    <div class="col">
+      <a routerLink="/warehouseman/product-add">Nuevo producto</a>
+      <ul>
+        <li *ngFor="let product of products">
+          <div>{{product.SKUcode}} - {{product.name}}
+          <a routerLink="/warehouseman/product-detail/{{product.SKUcode}}">Ver</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="userIsCashier()">Usuario no autorizado.</div>
+  <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
+</div>

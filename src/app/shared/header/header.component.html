@@ -1,0 +1,15 @@
+<div class="row align-items-center">
+  <div class="col">
+    <h1>Mi Supermercado</h1>
+  </div>
+  <div class="col-md-auto">
+    <div *ngIf="user === null">
+      <button type="button" (click)="redirectToLogin()">Iniciar sesión</button>
+      <button type="button" (click)="signin()">Registrate</button>
+    </div>
+    <div *ngIf="user !== null">
+      <button type="button" class="btn btn-outline-danger" (click)="userInfo()">Información del usuario</button>
+      <button type="button" class="btn btn-outline-danger" (click)="logout()">Cerrar sesión</button>
+    </div>
+  </div>
+</div>

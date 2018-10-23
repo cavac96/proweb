@@ -1,0 +1,12 @@
+<div>
+  <div *ngIf="!userIsNotLogged()">
+    <h2>Información del usuario</h2>
+    <div>ID: {{user.id}}</div>
+    <div>Nombre: {{user.name}}</div>
+    <div>Rol: {{user.role}}</div>
+    <div>Correo: {{user.email}}</div>
+    <!--a routerLink="/info/edit/{{user.id}}">Editar</a-->
+    <button (click)="goBack()">volver</button>
+  </div>
+  <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
+</div>
