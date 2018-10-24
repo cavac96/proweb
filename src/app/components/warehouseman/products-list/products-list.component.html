@@ -1,17 +1,25 @@
-<div class="row align-items-center test">
-  <div *ngIf="userIsWarehouseman()" class="col">
-    <h2>Inventario</h2>
-    <div class="col">
-      <a routerLink="/warehouseman/product-add">Nuevo producto</a>
-      <ul>
-        <li *ngFor="let product of products">
-          <div>{{product.SKUcode}} - {{product.name}}
-          <a routerLink="/warehouseman/product-detail/{{product.SKUcode}}">Ver</a>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="todo">
+  <div class="tyv">
+    <h1>Inventario</h1>
+    <a class="mas btn btn-group-sm btn-info" routerLink="/warehouseman/product-add">+</a>
   </div>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Código SKU</th>
+      <th scope="col">Producto</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <th scope="row">{{product.SKUcode}}</th>
+      <td>{{product.name}}</td>
+      <th scope="row"><a class="btn btn-sm btn-info" routerLink="/warehouseman/product-detail/{{product.SKUcode}}">Ver</a></th>
+      <!--<th scope="row"><button class="btn btn-sm btn-danger" (click)="removeProduct(key)">x</button></th>-->
+    </tr>
+    </tbody>
+  </table>
   <div *ngIf="userIsCashier()">Usuario no autorizado.</div>
   <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
 </div>

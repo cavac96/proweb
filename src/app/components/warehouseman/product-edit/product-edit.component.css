@@ -1,0 +1,29 @@
+.todo {
+  margin: 20px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  margin: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  text-align: center;
+}
+
+.btn {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.tyv {
+  display: flex;
+}
+
+.volver {
+  margin: 20px;
+  margin-top: 30px;
+}

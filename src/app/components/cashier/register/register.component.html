@@ -1,52 +1,74 @@
-<div>
+<div class="todo">
   <div *ngIf="userIsCashier() && !invoice">
-    <h2>Registro de productos</h2>
-    <div *ngIf="keys.length > 0">
-      <button (click)="calculate()">Calcular</button>
-      <button (click)="generateInvoice()">Generar factura</button>
-    </div>
-    <div *ngIf="total > 0">Total: {{total}}</div>
-    <div>
-      <label>Código SKU:
-        <input #SKUcode />
-      </label>
-      <label>Cantidad:
-        <input type="number" #quantity />
-      </label>
-      <button (click)="addProduct(SKUcode.value, quantity.value); SKUcode.value=''; quantity.value=''">
-        add
-      </button>
+    <h1 >Registro de productos</h1>
+
+    <div class="byt" *ngIf="keys.length > 0">
+      <button class="btn btn-info" (click)="calculate()">Total</button>
+      <button class="btn btn-info" (click)="generateInvoice()">Factura</button>
+      <div *ngIf="total > 0"><h5>Total: {{total}}</h5></div>
     </div>
 
-    <ul>
-      <li *ngFor="let key of keys">
-        <div>{{key.name}}</div>
-        <div>{{key.price}}</div>
-        <div>Cantidad: {{productsMap.get(key)}}</div>
-        <button (click)="removeProduct(key)">Borrar</button>
-      </li>
-    </ul>
+    <form class="form-inline">
+      <label class="sr-only" >Código SKU</label>
+      <input #SKUcode type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Código SKU">
+
+      <label class="sr-only">Unidades</label>
+      <input #quantity type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputGroupUsername2" placeholder="Unidades">
+
+      <button class="btn btn-info mb-2" (click)="addProduct(SKUcode.value, quantity.value); SKUcode.value=''; quantity.value=''">
+        Agregar
+      </button>
+    </form>
+
+    <table class="table" *ngIf="keys.length > 0">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Unidades</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let key of keys">
+          <th scope="row"><button class="btn btn-sm btn-danger" (click)="removeProduct(key)">x</button></th>
+          <th scope="row">{{key.name}}</th>
+          <td>{{key.price}}</td>
+          <td>{{productsMap.get(key)}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div *ngIf="userIsCashier() && invoice">
-    <h2>Factura</h2>
-    <table>
+  <div *ngIf="userIsCashier() && invoice" class="factura">
+    <div class="tyv">
+      <h1 class="tfactura">Factura</h1>
+      <button class="btn btn-group-sm btn-secondary volver" (click)="goBack()">volver</button>
+    </div>
+    <table class="table">
+      <thead class="thead-light">
       <tr>
-        <th>Producto</th>
-        <th>Precio unidad</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
+        <th scope="row" colspan="4"><div class="misuper">Mi Supermercado</div></th>
       </tr>
+      <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio unidad</th>
+        <th scope="col">Unidades</th>
+        <th scope="col">Precio</th>
+      </tr>
+      </thead>
+      <tbody>
       <tr *ngFor="let key of keys">
-        <td>-{{key.name}}</td>
+        <td>{{key.name}}</td>
         <td>{{key.price}}</td>
         <td>{{productsMap.get(key)}}</td>
         <td>{{priceQuantity.get(key)}}</td>
       </tr>
+      <tr class="thead-light">
+        <th scope="row" colspan="4"><div>Total: {{total}}</div></th>
+      </tr>
+      </tbody>
     </table>
-    <hr>
-    <div>Total: {{total}}</div>
-    <button (click)="goBack()">volver</button>
   </div>
 
   <div *ngIf="userIsWarehouseman()">Usuario no autorizado.</div>

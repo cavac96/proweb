@@ -1,31 +1,40 @@
-<div>
-  <div *ngIf="userIsWarehouseman()">
-    <form #newProduct="ngForm" (ngSubmit) = addProduct(newProduct)>
-      <div class="form-group">
-        <label for="SKUcode">Código SKU del producto</label>
-        <input name='SKUcode' type="text" id="SKUcode" class="form-control" ngModel>
+<div class="todo">
+  <div class="tyv">
+    <h1>Agregar producto</h1>
+    <button class="volver btn btn-group-sm btn-secondary" (click)="goBack()">volver</button>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-auto">
+      <div class="login_form test">
+        <div *ngIf="userIsWarehouseman()">
+          <form #newProduct="ngForm" (ngSubmit) = addProduct(newProduct)>
+            <div class="form-group">
+              <label for="SKUcode">Código SKU del producto</label>
+              <input name='SKUcode' type="text" id="SKUcode" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="name">Nombre del producto</label>
+              <input name='name' type="text" id="name" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="meassureUnit">Unidad de medida del producto</label>
+              <input name='meassureUnit' type="text" id="meassureUnit" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="quantity">Cantidad del producto</label>
+              <input name='quantity' type="number" id="quantity" class="form-control" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="price">Precio del producto</label>
+              <input name='price' type="number" id="price" class="form-control" ngModel>
+            </div>
+            <button type="submit" class="btn btn-info">Crear</button>
+          </form>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="name">Nombre del producto</label>
-        <input name='name' type="text" id="name" class="form-control" ngModel>
-      </div>
-      <div class="form-group">
-        <label for="meassureUnit">Unidad de medida del producto</label>
-        <input name='meassureUnit' type="text" id="meassureUnit" class="form-control" ngModel>
-      </div>
-      <div class="form-group">
-        <label for="quantity">Cantidad del producto</label>
-        <input name='quantity' type="number" id="quantity" class="form-control" ngModel>
-      </div>
-      <div class="form-group">
-        <label for="price">Precio del producto</label>
-        <input name='price' type="number" id="price" class="form-control" ngModel>
-      </div>
-      <button type="submit" class="btn btn-primary">Crear</button>
-    </form>
-    <button (click)="goBack()">volver</button>
-
+    </div>
   </div>
   <div *ngIf="userIsCashier()">Usuario no autorizado.</div>
   <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
 </div>
+

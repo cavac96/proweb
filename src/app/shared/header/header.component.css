@@ -4,6 +4,16 @@ h1 {
   font-size: 55px;
 }
 
-a {
-  font-size: 15px;
+.btn-info {
+  margin: 5px;
+  color: #fff;
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.header {
+  background-color: cadetblue;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }

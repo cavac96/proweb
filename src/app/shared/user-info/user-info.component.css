@@ -1,0 +1,23 @@
+.todo {
+  margin: 20px;
+}
+
+h1 {
+  margin: 20px;
+  margin-top: 30px;
+  margin-left: 0px;
+}
+
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.tyv {
+  display: flex;
+}
+
+.volver {
+  margin: 20px;
+  margin-top: 30px;
+}

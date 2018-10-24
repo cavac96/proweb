@@ -1,0 +1,20 @@
+todo {
+  margin: 20px;
+}
+h1 {
+  margin: 20px;
+  margin-top: 30px;
+  margin-left: 0px;
+}
+
+.tyv {
+  display: flex;
+}
+
+.mas {
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+  margin-left: 20px;
+  margin-top: 40px;
+}

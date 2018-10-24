@@ -1,12 +1,15 @@
-<div>
-  <div *ngIf="!userIsNotLogged()">
-    <h2>Información del usuario</h2>
-    <div>ID: {{user.id}}</div>
-    <div>Nombre: {{user.name}}</div>
-    <div>Rol: {{user.role}}</div>
-    <div>Correo: {{user.email}}</div>
-    <!--a routerLink="/info/edit/{{user.id}}">Editar</a-->
-    <button (click)="goBack()">volver</button>
+<div class="todo">
+  <div class="tyv">
+    <h1>Información del usuario</h1>
+    <!--<button class="btn btn-group-sm btn-secondary" (click)="goBack()">volver</button>-->
+  </div>
+  <div class="jumbotron" *ngIf="!userIsNotLogged()">
+    <h2 class="display-4">{{user.name}}</h2>
+    <hr class="my-4">
+    <p class="lead">ID: {{user.id}}</p>
+    <p class="lead">Rol: {{user.role}}</p>
+    <p class="lead">Correo: {{user.email}}</p>
+    <!--<a class="btn btn-info btn-lg" href="#" role="button">Editar</a>-->
   </div>
   <div *ngIf="userIsNotLogged()">Inicie sesión.</div>
 </div>

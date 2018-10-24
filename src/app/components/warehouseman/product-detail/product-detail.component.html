@@ -1,13 +1,19 @@
-<div>
+<div class="todo">
   <div *ngIf="userIsWarehouseman() && product">
-    <h2>{{product.name}} - Detalles</h2>
-    <div>Código SKU: {{product.SKUcode}}</div>
-    <div>Unidad de medida: {{product.meassureUnit}}</div>
-    <div>Cantidad: {{product.quantity}}</div>
-    <div>Precio: {{product.price}}</div>
-    <a routerLink="/warehouseman/product-edit/{{product.SKUcode}}">Editar</a>
-    <button (click)="deleteProduct(product)">Eliminar</button>
-    <button (click)="goBack()">volver</button>
+    <div class="tyv">
+      <h1>Información del producto</h1>
+      <button class="volver btn btn-group-sm btn-secondary" (click)="goBack()">volver</button>
+    </div>
+    <div class="jumbotron">
+      <h2 class="display-4">{{product.name}}</h2>
+      <hr class="my-4">
+      <p class="lead">Código SKU: {{product.SKUcode}}</p>
+      <p class="lead">Unidad de medida: {{product.meassureUnit}}</p>
+      <p class="lead">Cantidad: {{product.quantity}}</p>
+      <p class="lead">Precio: {{product.price}}</p>
+      <a class="bt btn btn-info btn-lg" routerLink="/warehouseman/product-edit/{{product.SKUcode}}" role="button">Editar</a>
+      <button class="bt btn btn-info btn-lg" (click)="deleteProduct(product)">Eliminar</button>
+    </div>
   </div>
   <div *ngIf="userIsCashier()">Usuario no autorizado.</div>
   <div *ngIf="userIsNotLogged()">Inicie sesión.</div>

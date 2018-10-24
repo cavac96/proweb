@@ -1,0 +1,65 @@
+.todo {
+  margin: 20px;
+}
+
+h1 {
+  margin: 20px;
+  margin-top: 30px;
+  margin-left: 0px;
+}
+
+.byt {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.byt div {
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+  margin-left: 20px;
+}
+
+h5 {
+  margin-bottom: 0px;
+}
+
+.byt .btn {
+  margin: 5px;
+}
+
+
+th button {
+  width: auto;
+}
+
+.misuper {
+  text-align: center;
+}
+
+.factura {
+  width: 80%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.tfactura {
+  margin: 20px;
+  margin-top: 30px;
+  margin-left: 0px;
+}
+
+.tyv {
+  display: flex;
+}
+
+.volver {
+  margin: 20px;
+  margin-top: 30px;
+}
+
+.form-inline {
+  margin-bottom: 10px;
+}
